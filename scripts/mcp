@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ "$1" = "docker" ]; then
+  shift
+  "$SCRIPT_DIR/../codex-cli/scripts/run_mcp_in_container.sh" "$@"
+else
+  echo "Usage: mcp docker [args...]" >&2
+  exit 1
+fi
+

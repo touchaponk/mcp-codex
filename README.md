@@ -196,7 +196,16 @@ The hardening mechanism Codex uses depends on your OS:
   container image** and mounts your repo _read/write_ at the same path. A
   custom `iptables`/`ipset` firewall script denies all egress except the
   OpenAI API. This gives you deterministic, reproducible runs without needing
+
   root on the host. You can use the [`run_in_container.sh`](./codex-cli/scripts/run_in_container.sh) script to set up the sandbox.
+
+  To expose Codex as a Model Context Protocol (MCP) server inside the
+  container, use the [`mcp docker`](./scripts/mcp) helper. This launches the
+  container and starts the `codex mcp` server:
+
+  ```bash
+  ./scripts/mcp docker
+  ```
 
 ---
 
